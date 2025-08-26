@@ -11,6 +11,6 @@ public class ex02Controller {
             // 응단에 담을 html 경로
             // src/main/resources/templates 생략
             // .html 생략
-            return"Lifecycle/ex.02";
+            return"lifecycle/ex02";
         }
 }
