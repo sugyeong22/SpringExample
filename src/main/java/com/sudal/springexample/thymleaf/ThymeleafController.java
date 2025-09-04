@@ -1,14 +1,14 @@
 package com.sudal.springexample.thymleaf;
 
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @RequestMapping("/thymelaef")
 @Controller
@@ -53,4 +53,20 @@ public class ThymeleafController {
         return "thymeleaf/ex02";
     }
 
+    @GetMapping("/ex03")
+    public String ex03(Model model){
+
+        Date date = new Date(); // 객체가 생성된 현재 시간
+
+        LocalDate localDate = LocalDate.now(); // 현재 날짜를 리턴
+
+        LocalDateTime localDateTime = LocalDateTime.now(); //현재 날짜시간
+
+        model.addAttribute("date", date);
+        model.addAttribute("localDate", localDate);
+        model.addAttribute("localDateTime", localDateTime);
+
+
+        return "thymeleaf/ex03";
+    }
 }
