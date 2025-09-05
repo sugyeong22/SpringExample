@@ -20,4 +20,22 @@
             ,#{introduce}
         )
     </insert>
+
+    <select id="selectLastUser"
+            resultType="com.sudal.springexample.mvc.domian.User">
+        SELECT
+            `id`
+             ,`name`
+             ,`yyyymmdd`
+             ,`email`
+             ,`introduce`
+            ,`created_at`
+            ,`updated_at`
+        FROM
+            `new_user`
+        ORDER BY
+            `id` DESC
+        LIMIT 1
+
+    </select>
 </mapper>

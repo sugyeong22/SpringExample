@@ -1,7 +1,9 @@
 package com.sudal.springexample.mvc.repository;
 
+import com.sudal.springexample.mvc.domian.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Mapper
 public interface UserRepository {
@@ -12,4 +14,6 @@ public interface UserRepository {
             ,@Param("email") String email
             ,@Param("introduce")String introduce
     );
+
+    public User selectLastUser();
 }
