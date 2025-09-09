@@ -20,12 +20,24 @@ public class UserController {
     @PostMapping("/add")
     public String addUser(
             @RequestParam("name") String name
-            , @RequestParam("birthday")String birthday
-            , @RequestParam("email")String email
-            , @RequestParam(value="introduce", required=false)String introduce) { // 기본설정은 required=true라서 값이 없으면 안됌. 값을 안받아도 되는거면 false로 설정
+            , @RequestParam("birthday") String birthday
+            , @RequestParam("email") String email
+            , @RequestParam(value="introduce", required=false) String introduce
+            , Model model) {
 
-        int count = userService.creatUser(name, birthday, email, introduce);
-        return "실행결과 : " + count;
+        //객체를 저장해서 전달하면, id를 전달 할 수 있음.
+        User user = new User();
+        user.setName(name);
+        user.setYyyymmdd(birthday);
+        user.setEmail(email);
+        user.setIntroduce(introduce);
+
+        int count = userService.createUserByObject(user);
+
+//        int count = userService.createUser(name, birthday, email, introduce);
+        model.addAttribute("result", user);
+//        return "실행 결과 : " + count;
+        return "mvc/userInfo";
     }
 
 

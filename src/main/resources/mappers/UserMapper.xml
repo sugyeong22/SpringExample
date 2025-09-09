@@ -21,6 +21,27 @@
         )
     </insert>
 
+    <insert id="insertUserByObject"
+            parameterType="com.sudal.springexample.mvc.domian.User"
+            useGeneratedKeys="true" keyProperty="id"> <!-- 객체의 프라이머리키를 바로 가져오고 싶다면 설정해야하는 옵션 -->
+             <!-- parameterType 객체에 keyProperty의 값에 프라이머리 키를 넣어서 전달. -->
+        INSERT INTO
+            `new_user`
+        (
+          `name`
+        , `yyyymmdd`
+        , `email`
+        , `introduce`
+        )
+            VALUE
+            (
+            #{name}
+            , #{yyyymmdd}
+            , #{email}
+            , #{introduce}
+            )
+    </insert>
+
     <select id="selectLastUser"
             resultType="com.sudal.springexample.mvc.domian.User">
         SELECT
