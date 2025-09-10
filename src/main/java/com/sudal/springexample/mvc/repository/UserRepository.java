@@ -18,4 +18,8 @@ public interface UserRepository {
     public int insertUserByObject(User user);
 
     public User selectLastUser();
+
+    // 일치하는 email이 있는 행의 개수 조회
+    public int selectCountByEmail(@Param("email") String email);
+
 }
