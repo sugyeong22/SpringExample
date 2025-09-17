@@ -28,7 +28,6 @@ public class StudentService {
                 .build();
 
         Student result = studentRepository.save(student);
-
         return result;
 
     }
